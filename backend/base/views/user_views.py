@@ -43,7 +43,7 @@ def register_user(request):
         return Response(serializer.data)
     except:
         message = {"detail": "User already exists"}
-        return Response(message, status=status.HTTP_409_CONFLICT)
+        return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(["GET"])
