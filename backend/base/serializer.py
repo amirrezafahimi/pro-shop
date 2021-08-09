@@ -20,7 +20,6 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.id
 
     def get_name(self, obj):
-        print(obj)
         name = obj.first_name
         if name == "":
             name = obj.email
