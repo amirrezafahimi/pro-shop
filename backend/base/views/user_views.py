@@ -50,7 +50,7 @@ def register_user(request):
 @permission_classes([IsAuthenticated])
 def update_user_profile(request):
     user = request.user
-    serializer = UserSerializer(user, many=False)
+    serializer = UserSerializerWithToken(user, many=False)
 
     data = request.data
     user.first_name = data["name"]
