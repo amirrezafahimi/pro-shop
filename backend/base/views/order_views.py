@@ -87,6 +87,15 @@ def get_my_orders(request):
     return Response(serializer.data)
 
 
+@api_view(["GET"])
+@permission_classes([IsAdminUser])
+def get_orders(request):
+    orders = Order.objects.all()
+    serializer = OrderSerializer(orders, many=True)
+
+    return Response(serializer.data)
+
+
 @api_view(["PUT"])
 @permission_classes([IsAuthenticated])
 def update_order_to_paid(request, pk):
